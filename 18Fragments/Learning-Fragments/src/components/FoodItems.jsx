@@ -1,12 +1,14 @@
 import Item from "./Item";
 
-const FoodItems = ({ foodItems }) => {
+const FoodItems = ({ items }) => {
   return (
     <ul className="list-group">
-      {foodItems?.map((item) => (
-        <li key={item} className="list-group-item">
-          {item}
-        </li>
+      {items.map((item) => (
+        <Item
+          key={item}
+          foodItem={item}
+          handleBuyButton={() => console.log(`${item} bought`)}
+        ></Item>
       ))}
     </ul>
   );
