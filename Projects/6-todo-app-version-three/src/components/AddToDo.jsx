@@ -1,17 +1,24 @@
 import { IoAdd } from "react-icons/io5";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { TodoItemsContext } from "../store/todo-items-store";
 
-function AddToDo({ onNewItem }) {
+function AddToDo() {
+  const { addNewItem } = useContext(TodoItemsContext);
   const todoNameElement = useRef();
   const dueDateElement = useRef();
 
-  const handleAddButtonClicked = (event) => {
-    event.preventDefault();
-    const todoName = todoNameElement.current.value;
-    const dueDate = dueDateElement.current.value;
-    todoNameElement.current.value = "";
-    dueDateElement.current.value = "";
-    onNewItem(todoName, dueDate);
+  const handleNameChange = (event) => {
+    setTodoName(event.target.value);
+  };
+
+  const handleDateChange = (event) => {
+    setDueDate(event.target.value);
+  };
+
+  const handleAddButtonClicked = () => {
+    addNewItem(todoName, dueDate);
+    setDueDate("");
+    setTodoName("");
   };
   return (
     <div className="container text-center">
@@ -30,7 +37,7 @@ function AddToDo({ onNewItem }) {
           <button
             type="button"
             className="btn btn-success kg-button"
-            onClick={handleAddButtonClicked}
+            onClick={TodoItemsContext}
           >
             <IoAdd />
           </button>
