@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import Post from "./Post";
-// import { PostList } from "../store/Post-List-Store";
+import { PostList as PostListData } from "../store/Post-List-Store";
 
 const PostList = () => {
-  // useContext(PostList);
+  const { postList } = useContext(PostListData);
   return (
     <>
       <Post></Post>

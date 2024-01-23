@@ -19,10 +19,11 @@ const PostListProvider = ({ children }) => {
   const addPost = () => {};
 
   const deletePost = () => {};
+
   return (
-    <PostListProvider value={{ postList, addPost, deletePost }}>
+    <PostList.Provider value={{ postList, addPost, deletePost }}>
       {children}
-    </PostListProvider>
+    </PostList.Provider>
   );
 };
 
@@ -39,7 +40,7 @@ const DEFAULT_POST_LIST = [
     id: "2",
     title: "Pass ho bhai",
     body: "pass hogya bhai  4 saal ki mehnat ke baad",
-    reactions: 2,
+    reactions: 15,
     userId: "user-12",
     tags: ["graduating", "unbelieavable"],
   },
