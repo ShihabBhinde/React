@@ -4,12 +4,16 @@ import styles from "./TodoItems.module.css";
 import { TodoItemsContext } from "../store/todo-items-store";
 
 const TodoItems = () => {
-  const { TodoItems } = useContext(TodoItemsContext);
+  const { todoItems } = useContext(TodoItemsContext);
 
   return (
     <div className={styles.itemsContainer}>
       {TodoItems.map((item) => (
-        <TodoItem todoName={item.name} todoDate={item.dueDate}></TodoItem>
+        <TodoItem
+          key={item.name}
+          todoName={item.name}
+          todoDate={item.dueDate}
+        ></TodoItem>
       ))}
     </div>
   );
