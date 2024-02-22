@@ -47,7 +47,6 @@ const Header = () => {
 
           <Link className="action_container" to="/bag">
             <IoBagHandle />
-
             <span className="action_name">Bag</span>
             <span className="bag-item-count">0</span>
           </Link>
