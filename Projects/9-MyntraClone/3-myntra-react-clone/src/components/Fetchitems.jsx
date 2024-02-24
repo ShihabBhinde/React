@@ -6,19 +6,18 @@ const FetchItems = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setFetching(true);
+    if (fetchStatus.fetchDone) return;
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetch("https://localhost:8080/items", { signal })
+    fetch("https://localhost:5173/items", { signal })
       .then((res) => res.json())
-      .then((data) => {
-        addInitialPosts(data.posts);
-        setFetching(false);
+      .then(({ items }) => {
+        console.log("items fetched", items);
       });
 
     return () => {
-      console.log("Cleaning p UseEffect");
+      console.log("Cleaning up UseEffect.");
       controller.abort();
     };
   }, [fetchStatus]);
