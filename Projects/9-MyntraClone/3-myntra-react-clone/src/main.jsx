@@ -15,13 +15,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home /> /*,
-        loader: postLoader,*/,
+        element: <Home />,
       },
       {
         path: "/bag",
         element: <Bag />,
-        /*action: createPostAction,*/
       },
     ],
   },
